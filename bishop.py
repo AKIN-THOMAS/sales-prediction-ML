@@ -7,7 +7,7 @@ import streamlit as st
 model = pkl.load(open("big_mart_model.pkl", "rb"))
 
 
-st.title("Bishop's Sales Predictions using ML")
+st.title("  Bishop's Sales Predictions using ML")
 # image
 st.image("hero.jpg")
 
@@ -32,13 +32,7 @@ with col2:
 with col3:
     Outlet_Size = st.selectbox('**Outlet Size**', ['Small', 'Medium', 'High'])
 
-with col3:
-    sales_prediction_output = ""
-    if st.button('**Predict Sales**'):
-        sales_prediction = make_prediction(data)
-        sales_prediction_output = f"**:blue[The sales is predicted to be {sales_prediction}]**"
-        st.success(sales_prediction_output, icon="📊")
-    st.divider()
+# with col3:
 
 
 # Data Processing
@@ -74,6 +68,12 @@ def make_prediction(data):
     return round(float(prediction), 2)
 
 
+sales_prediction_output = ""
+if st.button('**Predict Sales**'):
+    sales_prediction = make_prediction(data)
+    sales_prediction_output = f"**:blue[The sales is predicted to be {sales_prediction}]**"
+    st.success(sales_prediction_output, icon="👍")
+st.divider()
 # Button for Prediction
 # sales_prediction_output = ""
 
